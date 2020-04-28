@@ -1,0 +1,20 @@
+{
+    "name": "ss20_iot2_backend",
+    "version": "0.0.0",
+    "description": "",
+    "main": "src/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node src",
+        "lint": "eslint src"
+    },
+    "author": "Ligia Dietze",
+    "license": "ISC",
+    "devDependencies": {
+        "eslint": "^6.8.0",
+        "eslint-plugin-react": "^7.19.0"
+    },
+    "dependencies": {
+        "axios": "^0.19.2"
+    }
+}
