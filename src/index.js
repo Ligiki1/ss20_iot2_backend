@@ -1,4 +1,9 @@
 const axios = require('axios').default;
+const express = require('express');
+
+const app = express();
+
+let output = "";
 
 axios({
   method: 'get',
@@ -6,6 +11,28 @@ axios({
   responseType: "json"
 })
   .then(function (response) {
-    let data = response.data;
+    const data = response.output;
     console.log (data); 
+    output = data;
   });
+
+//Params - REST-artig
+app.get('/user/:uid', function (req, res) {
+    res.send("User ID is set to " + req.params.uid);
+    //tu was
+});
+
+app.get('/mensa/:day', function (req, res) {
+  if (req.params.day === 'Montag') {
+    res.send(output);
+  } else {
+    res.status(404).send('404');
+  }
+  // tu was
+});
+
+
+//Server starten
+app.listen(3000, function () {
+    console.log('Example app listening on port 3000!');
+});
