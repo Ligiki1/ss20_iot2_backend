@@ -1,0 +1,17 @@
+Was für Softwaresysteme müssen auf die API zugreifen? 
+Name: HfG Mensa API
+Stakeholder: Studenten und Dozenten
+
+was erwarten die Leute von dem Produkt?
+
+Use-Cases: 
+- wollen wissen was es an dem Tag zu Essen gibt
+- dazu sollte es abrufbare Mensamenüs geben
+
+Technologie: 
+Um diese Menüs abrufen zu können, bauen wir einen 
+REST-Endpoint - dieser ist wie eine Funktion 
+"Ansprechspunkt" der HfG Mensa API, die uns auf 
+Anfrage des jeweiligen Tages 
+(app.get(./mensa/:day/{[mo,di,mi,do,fr]})
+Informationen zum Tagesmenü liefert. 
