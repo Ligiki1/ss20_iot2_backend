@@ -1,9 +1,14 @@
-const axios = require('axios').default;
 const express = require('express');
+const axios = require('axios');
+const cors = require('cors');
 
-const app = express();
 
-let output = "";
+let app = express();
+app.use(express.json());
+app.use(cors());
+let loadedData;
+
+
 
 axios({
   method: 'get',
@@ -11,9 +16,9 @@ axios({
   responseType: "json"
 })
   .then(function (response) {
-    const data = response.output;
+    const data = response.input;
     console.log (data); 
-    output = data;
+    input = data;
   });
 
 //Params - REST-artig
@@ -24,13 +29,12 @@ app.get('/user/:uid', function (req, res) {
 
 app.get('/mensa/:day', function (req, res) {
   if (req.params.day === 'Montag') {
-    res.send(output);
+    res.send(input);
   } else {
     res.status(404).send('404');
   }
   // tu was
 });
-
 
 //Server starten
 app.listen(3000, function () {
